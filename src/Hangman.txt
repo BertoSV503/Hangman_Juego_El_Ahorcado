@@ -1,0 +1,114 @@
+La clase Hangman representa un juego de ahorcado. El juego consiste en adivinar una palabra secreta eligiendo letras una
+por una. Si adivinas una letra que está en la palabra secreta, se revelará en su posición correcta. Pero solo se tiene
+un número limitado de intentos fallidos antes de perder el juego.
+
+La clase tiene varios campos privados para almacenar información sobre el estado del juego:
+
+"palabraSecreta" : La palabra secreta que el jugador debe adivinar.
+"maximoIntentosFallidos" : El número máximo de intentos fallidos permitidos antes de perder el juego.
+"intentosFallidos" : El número actual de intentos fallidos.
+"letrasAcertadas" : Una cadena que contiene todas las letras que el jugador ha adivinado correctamente.
+"letrasIncorrectas" : Una cadena que contiene todas las letras que el jugador ha adivinado incorrectamente.
+"saldo" : El saldo actual del jugador.
+"puntuacion": La puntuación actual del jugador.
+
+El constructor de la clase toma dos argumentos: "palabraSecreta" y "maximoIntentosFallidos". Estos valores se utilizan
+para inicializar los campos correspondientes. Los demás campos se inicializan con valores predeterminados.
+
+La clase tiene varios métodos públicos para interactuar con el juego:
+
+"adivinandoLetras(char letras)" : Este método toma una letra como argumento y verifica si está en la palabra secreta. Si
+la letra ya ha sido ingresada anteriormente y no fue encontrada, se muestra un mensaje al usuario y el método devuelve
+"false". Si la letra está en la palabra secreta, se agrega a la cadena "letrasAcertadas" y se aumenta el saldo del
+jugador en 50.0. Si la letra no está en la palabra secreta, se incrementa el contador de intentos fallidos, se agrega la
+letra a la cadena "letrasIncorrectas" y se reduce el saldo del jugador en 50.0. Finalmente, el método devuelve true.
+
+"juegoFinalizado()" : Este método verifica si el juego ha terminado. El juego termina si el jugador ha alcanzado el
+número máximo de intentos fallidos o si ha adivinado todas las letras de la palabra secreta. Si el juego ha terminado,
+el método devuelve true, de lo contrario, devuelve false.
+
+"juegoGanado()" : Este método verifica si el jugador ha ganado el juego. El jugador gana si ha adivinado todas las
+letras de la palabra secreta. Si el jugador ha ganado, el método devuelve true, de lo contrario, devuelve false.
+
+"mostrarEstado()" : Este método muestra información sobre el estado actual del juego, incluyendo la palabra secreta con
+las letras adivinadas reveladas, el número de intentos fallidos, el número de intentos restantes, el saldo y la
+puntuación del jugador.
+
+"calcularPuntuacionFinal()" : Este método calcula la puntuación final del jugador. Si el jugador ha ganado el juego, su
+puntuación final es igual a su saldo más 1000.0. De lo contrario, su puntuación final es igual a su saldo.
+
+**************************
+Metodo adivinandoLetras()
+**************************
+
+El método "adivinandoLetras" toma como argumento una letra y verifica si está en la palabra secreta. Primero, convierte
+la letra a minúsculas utilizando el método "Character.toLowerCase". Luego, verifica si la letra ya ha sido ingresada
+anteriormente y no fue encontrada, es decir, si está en la cadena "letrasIncorrectas". Si es así, muestra un mensaje al
+usuario indicando que la letra ya ha sido ingresada y no fue encontrada, y devuelve "false".
+
+Si la letra no ha sido ingresada anteriormente o fue encontrada, el método verifica si está en la palabra secreta
+utilizando el método "indexOf" de la clase String. Si la letra está en la palabra secreta, se agrega a la cadena
+"letrasAcertadas" y se aumenta el saldo del jugador en 50.0. Si la letra no está en la palabra secreta, se incrementa el
+contador de intentos fallidos, se agrega la letra a la cadena "letrasIncorrectas" y se reduce el saldo del jugador en
+50.0. Finalmente, el método devuelve "true".
+
+En resumen, el método adivinandoLetras verifica si una letra está en la palabra secreta y actualiza el estado del juego
+en consecuencia. Si la letra ya ha sido ingresada anteriormente y no fue encontrada, el método devuelve false. De lo
+contrario, devuelve true.
+
+************************
+Metodo juegoFinalizado()
+************************
+
+El método "juegoFinalizado" verifica si el juego ha terminado. El juego termina si el jugador ha alcanzado el número
+máximo de intentos fallidos o si ha adivinado todas las letras de la palabra secreta.
+
+Primero, el método verifica si el número de intentos fallidos es mayor o igual al número máximo de intentos fallidos
+permitidos. Si es así, el juego ha terminado y el método devuelve true.
+
+Si el jugador aún no ha alcanzado el número máximo de intentos fallidos, el método verifica si ha adivinado todas las
+letras de la palabra secreta. Para hacer esto, recorre cada letra de la palabra secreta y verifica si está en la cadena
+"letrasAcertadas" utilizando el método indexOf de la clase String. Si encuentra una letra que no está en la cadena
+"letrasAcertadas", significa que el jugador aún no ha adivinado todas las letras de la palabra secreta y el juego no ha
+terminado, por lo que el método devuelve false.
+
+Si todas las letras de la palabra secreta están en la cadena "letrasAcertadas", significa que el jugador ha adivinado
+todas las letras de la palabra secreta y el juego ha terminado, por lo que el método devuelve true.
+
+En resumen, el método juegoFinalizado verifica si el juego ha terminado y devuelve true si es así, o false si no es así.
+
+********************
+Metodo juegoGanado()
+********************
+
+El método "juegoGanado" verifica si el jugador ha ganado el juego. El jugador gana si ha adivinado todas las letras de
+la palabra secreta.
+
+Para verificar si el jugador ha adivinado todas las letras de la palabra secreta, el método recorre cada letra de la
+palabra secreta y verifica si está en la cadena "letrasAcertadas" utilizando el método indexOf de la clase String. Si
+encuentra una letra que no está en la cadena "letrasAcertadas", significa que el jugador aún no ha adivinado todas las
+letras de la palabra secreta y no ha ganado el juego, por lo que el método devuelve false.
+
+Si todas las letras de la palabra secreta están en la cadena "letrasAcertadas", significa que el jugador ha adivinado
+todas las letras de la palabra secreta y ha ganado el juego, por lo que el método devuelve true.
+
+En resumen, el método juegoGanado verifica si el jugador ha ganado el juego y devuelve true si es así, o false si no es
+así.
+
+**********************
+Metodo mostrarEstado()
+**********************
+
+El método "mostrarEstado" muestra información sobre el estado actual del juego. Primero, crea una instancia de la clase
+"StringBuilder" para construir una representación de la palabra secreta con las letras adivinadas reveladas. Luego,
+recorre cada letra de la palabra secreta y verifica si está en la cadena "letrasAcertadas" utilizando el método "indexOf"
+de la clase String. Si la letra está en la cadena "letrasAcertadas", se agrega a la instancia de StringBuilder. De lo
+contrario, se agrega un asterisco (*) para representar una letra no adivinada.
+
+Después de construir la representación de la palabra secreta con las letras adivinadas reveladas, el método muestra esta
+información junto con el número de intentos fallidos, el número de intentos restantes, el saldo y la puntuación del
+jugador utilizando el método println de la clase System.out.
+
+En resumen, el método "mostrarEstado" muestra información sobre el estado actual del juego, incluyendo la palabra
+secreta con las letras adivinadas reveladas, el número de intentos fallidos, el número de intentos restantes, el saldo
+y la puntuación del jugador.

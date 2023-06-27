@@ -1,0 +1,40 @@
+La clase PalabrasEscondidas representa una colección de palabras organizadas por categorías.
+La clase tiene dos campos privados:
+
+"categorias" : Un objeto HashMap que mapea nombres de categorías a listas de palabras. Cada entrada en el HashMap
+representa una categoría y contiene una lista de palabras asociadas a esa categoría.
+
+"rand" : Un objeto Random utilizado para generar números aleatorios.
+
+El constructor de la clase inicializa estos campos. El campo categorias se inicializa como un nuevo objeto HashMap, y el
+campo rand se inicializa como un nuevo objeto Random.
+
+La clase tiene varios métodos públicos para interactuar con la colección de palabras:
+
+"agregarCategoria(String nombreCategoria)" : Este método agrega una nueva categoría a la colección. Toma como argumento
+el nombre de la categoría y crea una nueva entrada en el HashMap con este nombre como clave y una nueva lista vacía como
+valor.
+
+"agregarPalabra(String nombreCategoria, String palabra)" : Este método agrega una nueva palabra a una categoría existente
+en la colección. Toma como argumentos el nombre de la categoría y la palabra a agregar. Primero, busca la lista de
+palabras asociada a la categoría especificada en el HashMap. Si encuentra la lista, agrega la palabra a la lista
+utilizando el método add de la clase ArrayList.
+
+"eliminarPalabra(String nombreCategoria, String palabra)" : Este método elimina una palabra de una categoría existente
+en la colección. Toma como argumentos el nombre de la categoría y la palabra a eliminar. Primero, busca la lista de
+palabras asociada a la categoría especificada en el HashMap. Si encuentra la lista, elimina la palabra de la lista
+utilizando el método remove de la clase ArrayList.
+
+"obtenerPalabraAleatoria(String nombreCategoria, String dificultad)" : Este método devuelve una palabra aleatoria de una
+categoría y dificultad específicas. Toma como argumentos el nombre de la categoría y la dificultad. Primero, busca la
+lista de palabras asociada a la categoría especificada en el HashMap. Si encuentra la lista y no está vacía, crea una
+nueva lista llamada "palabrasFiltradas" y recorre cada palabra en la lista original. Para cada palabra, verifica si
+cumple con los criterios de longitud especificados por la dificultad elegida. Si es así, agrega la palabra a la lista
+"palabrasFiltradas". Después de recorrer todas las palabras, verifica si la lista palabrasFiltradas está vacía. Si no
+está vacía, genera un índice aleatorio utilizando el objeto rand y devuelve la palabra en ese índice en la lista
+"palabrasFiltradas". De lo contrario, devuelve null. Si no encuentra la lista de palabras asociada a la categoría
+especificada o si está vacía, también devuelve null.
+
+En resumen, la clase "PalabrasEscondidas" representa una colección de palabras organizadas por categorías y proporciona
+métodos para agregar y eliminar palabras, así como para obtener una palabra aleatoria de una categoría y dificultad
+específicas.

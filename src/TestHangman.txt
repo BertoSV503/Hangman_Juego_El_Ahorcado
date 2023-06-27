@@ -1,0 +1,62 @@
+La clase "TestHangman" contiene el método "main", que es el punto de entrada del programa. En este método, se realiza lo
+siguiente:
+
+Se lee el contenido de un archivo de texto llamado "banner.txt" y se almacena en una variable llamada "content". Si
+ocurre un error al leer el archivo, se muestra un mensaje de error utilizando el método "printStackTrace" de la excepción.
+
+Se agrega más información a la variable "content", incluyendo información sobre el creador y el programador del juego,
+así como un mensaje de bienvenida y una breve descripción del juego.
+
+Se muestra el contenido de la variable "content" en la consola utilizando el método println de la clase System.out.
+
+Se crea una instancia de la clase "PalabrasEscondidas" y se agregan varias categorías y palabras a esta instancia
+utilizando los métodos "agregarCategoria" y "agregarPalabra".
+
+Se crea una instancia de la clase Scanner para leer la entrada del usuario.
+
+Se inicializa una variable llamada "jugarDeNuevo" con el valor "s".
+
+Se entra en un bucle while que se ejecuta mientras el valor de "jugarDeNuevo" sea igual a "s". Dentro del bucle, se
+realiza lo siguiente:
+
+a. Se muestra un menú al usuario para que elija una categoría y una dificultad.
+
+b. Se utiliza un bloque switch para determinar el nombre de la categoría elegida por el usuario.
+
+c. Se utiliza otro bloque switch para determinar la dificultad elegida por el usuario.
+
+d. Se llama al método "obtenerPalabraAleatoria" de la instancia de "PalabrasEscondidas" para obtener una palabra secreta
+aleatoria en la categoría y dificultad elegidas por el usuario.
+
+e. Se crea una instancia de la clase Hangman con la palabra secreta obtenida y un número máximo de intentos fallidos
+igual a 6.
+
+f. Se entra en otro bucle while que se ejecuta mientras el juego no haya terminado (es decir, mientras el método
+"juegoFinalizado" de la instancia de Hangman devuelva false). Dentro de este bucle, se realiza lo siguiente:
+
+i. Se muestra un mensaje al usuario pidiéndole que ingrese una letra.
+
+ii. Se lee la entrada del usuario utilizando el método nextLine de la instancia de Scanner.
+
+iii. Se verifica si la entrada del usuario es una letra válida (es decir, si es un carácter alfabético). Si no es así,
+se muestra un mensaje al usuario indicando que debe ingresar una letra válida.
+
+iv. Si la entrada del usuario es una letra válida, se llama al método "adivinandoLetras" de la instancia de Hangman con
+esta letra como argumento.
+
+v. Se llama al método "mostrarEstado" de la instancia de Hangman para mostrar información sobre el estado actual del
+juego.
+
+vi. Se verifica si el jugador ha ganado el juego (es decir, si el método "juegoGanado" de la instancia de Hangman
+devuelve true). Si es así, se muestra un mensaje al usuario felicitándolo por su victoria y se llama al método estático
+"agregarPalabraSecreta" para permitirle al usuario agregar una nueva palabra secreta al juego como premio por haber
+ganado.
+
+g. Después de salir del bucle interno (es decir, cuando el juego ha terminado), se verifica si el jugador ha ganado o
+perdido el juego y se muestra un mensaje apropiado al usuario.
+
+h. Finalmente, se pregunta al usuario si desea jugar de nuevo y se lee su respuesta utilizando el método nextLine de la
+instancia de Scanner. Si su respuesta es "s", el bucle externo se repite y comienza un nuevo juego.
+
+En resumen, la clase TestHangman contiene el código principal del programa, que permite al usuario jugar varios juegos
+de ahorcado eligiendo una categoría y una dificultad para cada juego.
